@@ -38,7 +38,7 @@ export default function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader>
-        <h1 className="text-3xl font-bold text-center">A</h1>
+        <h1 className="text-3xl font-bold text-center">Convoflo</h1>
       </SidebarHeader>
       <SidebarContent className="mt-5">
         <SidebarGroup>
