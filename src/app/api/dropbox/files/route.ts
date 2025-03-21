@@ -73,8 +73,8 @@ export async function GET(req: NextRequest) {
     );
     const data = res.data;
     const files = data.entries.filter(
-      (entry: { [key: string]: any }) => entry[".tag"] === "file"
-    ); //eslint-disable-line
+      (entry: { [key: string]: any }) => entry[".tag"] === "file"//eslint-disable-line
+    ); 
     return NextResponse.json(files, { status: 200 });
   } catch (error) {
     console.error(error);

@@ -43,7 +43,7 @@ export default async function Page() {
             <div className="flex items-center gap-6">
               <Avatar className="h-20 w-20">
                 <AvatarImage
-                  src={session?.user?.image!}
+                  src={session?.user?.image || "/avatar.webp"}
                   alt={session?.user?.name}
                 />
                 <AvatarFallback>

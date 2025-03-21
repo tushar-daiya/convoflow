@@ -128,7 +128,7 @@ export default function Page() {
           Continue with Google
         </Button>
         <div className="mt-8 text-center text-sm text-gray-500">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <a
             href="/signup"
             className="text-indigo-600 hover:text-indigo-500 font-medium"

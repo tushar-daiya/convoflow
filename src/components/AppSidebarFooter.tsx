@@ -46,7 +46,7 @@ export default function AppSidebarFooter() {
             >
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage
-                  src={session?.user?.image!}
+                  src={session?.user?.image|| "/avatar.webp"}
                   alt={session?.user?.name}
                 />
                 <AvatarFallback className="rounded-lg">CN</AvatarFallback>
@@ -70,7 +70,7 @@ export default function AppSidebarFooter() {
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage
-                    src={session?.user?.image!}
+                    src={session?.user?.image|| "/avatar.webp"}
                     alt={session?.user?.name}
                   />
                   <AvatarFallback className="rounded-lg">CN</AvatarFallback>
