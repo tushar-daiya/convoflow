@@ -99,7 +99,7 @@ export async function POST(req: NextRequest) {
     }
     const { status } = await docsToVector(
       loader,
-      session?.user?.id as string,
+      session?.user?.id.toLowerCase(),
       userInfo.openAiApiKey,
       userInfo.pineconeApiKey
     );
