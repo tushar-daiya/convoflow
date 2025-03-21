@@ -34,7 +34,7 @@ export default async function Page() {
         )}
       </div>
       <div className="mt-5">
-        <DropboxFiles />
+        {refreshToken?.dropbox_refresh_token && <DropboxFiles />}
       </div>
     </div>
   );

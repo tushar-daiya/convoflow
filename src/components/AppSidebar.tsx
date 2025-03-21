@@ -25,7 +25,7 @@ const sidebarItems = [
   },
   {
     name: "Dropbox",
-    url: "dropbox",
+    url: "/dashboard/dropbox",
     icon: DropboxIcon,
   },
 ];

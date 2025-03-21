@@ -12,6 +12,6 @@ export const signupSchema = z.object({
 });
 
 export const apiKeySchema=z.object({
-    openai:z.string().regex(/sk-[a-zA-Z0-9]/),
-    pinecone:z.string().regex(/pcsk-[a-zA-Z0-9]/),
+    openai:z.string(),
+    pinecone:z.string(),
 })

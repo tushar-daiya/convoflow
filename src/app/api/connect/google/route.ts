@@ -6,6 +6,7 @@ export async function GET() {
     access_type: "offline",
     scope: ["https://www.googleapis.com/auth/drive.readonly"],
     redirect_uri: process.env.GOOGLE_REDIRECT_URI,
+    prompt:"consent"
   });
   return NextResponse.redirect(authUrl);
 }

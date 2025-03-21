@@ -34,7 +34,7 @@ export default async function Page() {
         )}
       </div>
       <div className="mt-5">
-        <GoogleDriveFiles />
+        {refreshToken?.google_refresh_token && <GoogleDriveFiles />}
       </div>
     </div>
   );
