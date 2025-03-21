@@ -22,6 +22,7 @@ model User {
   openAiApiKey         String?
   pineconeApiKey       String?
   google_refresh_token String?
+  dropbox_refresh_token String?
   createdAt            DateTime
   updatedAt            DateTime
   sessions             Session[]
