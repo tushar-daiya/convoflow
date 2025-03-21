@@ -1,5 +1,5 @@
 import { GoogleIcon, DropboxIcon } from "@/components/Icons";
-import { ChartBar } from "lucide-react";
+import { ChartBar,File } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -27,6 +27,11 @@ const sidebarItems = [
     name: "Dropbox",
     url: "/dashboard/dropbox",
     icon: DropboxIcon,
+  },
+  {
+    name: "Upload File",
+    url: "/dashboard/upload",
+    icon: File,
   },
 ];
 export default function AppSidebar() {

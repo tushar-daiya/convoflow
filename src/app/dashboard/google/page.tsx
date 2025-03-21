@@ -1,3 +1,4 @@
+import DisconnectGoogleDrive from "@/components/DisconnectGoogleDrive";
 import GoogleDriveFiles from "@/components/GoogleDriveFiles";
 import { Button } from "@/components/ui/button";
 import { auth } from "@/lib/auth";
@@ -26,7 +27,7 @@ export default async function Page() {
       <div className="flex items-center justify-between p-5">
         <p className="text-2xl font-bold">Google Drive</p>
         {refreshToken?.google_refresh_token ? (
-          <p className="text-lg text-gray-500">Already Connected</p>
+          <DisconnectGoogleDrive />
         ) : (
           <Button asChild>
             <Link href={"/api/connect/google"}>Connect Google Drive</Link>

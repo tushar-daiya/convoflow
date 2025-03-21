@@ -1,3 +1,4 @@
+import DisconnectDropbox from "@/components/DisconnectDropbox";
 import DropboxFiles from "@/components/DropboxFiles";
 import { Button } from "@/components/ui/button";
 import { auth } from "@/lib/auth";
@@ -26,7 +27,7 @@ export default async function Page() {
       <div className="flex items-center justify-between p-5">
         <p className="text-2xl font-bold">Dropbox</p>
         {refreshToken?.dropbox_refresh_token ? (
-          <p className="text-lg text-gray-500">Already Connected</p>
+          <DisconnectDropbox />
         ) : (
           <Button asChild>
             <Link href={"/api/connect/dropbox"}>Connect Dropbox</Link>
