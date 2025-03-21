@@ -20,14 +20,44 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { apiKeySchema } from "@/lib/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+import { toast } from "sonner";
 
-export default function ApiKeyInput() {
+export default function ApiKeyInput({
+  openAiApiKey,
+  pineconeApiKey,
+}: {
+  openAiApiKey?: string | null;
+  pineconeApiKey?: string | null;
+}) {
   const form = useForm<z.infer<typeof apiKeySchema>>({
     resolver: zodResolver(apiKeySchema),
+    defaultValues: {
+      openai: openAiApiKey || "",
+      pinecone: pineconeApiKey || "",
+    },
   });
 
   async function onSubmit(data: z.infer<typeof apiKeySchema>) {
-    console.log(data);
+    let loader;
+    try {
+      loader = toast.loading("Saving API keys");
+      const res = await axios.post(
+        "/api/apiKeys",
+        {
+          openai: data.openai,
+          pinecone: data.pinecone,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      toast.dismiss(loader);
+      toast.success("API keys saved");
+    } catch (error) {
+      toast.dismiss(loader);
+      toast.error("An error occurred");
+    }
   }
 
   return (
@@ -73,7 +103,7 @@ export default function ApiKeyInput() {
                 </FormItem>
               )}
             />
-            <Button type="submit">Submit</Button>
+            <Button type="submit">Update</Button>
           </form>
         </Form>
       </CardContent>

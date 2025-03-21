@@ -9,12 +9,26 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
 import { User } from "lucide-react";
 import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default async function Page() {
   const session = await auth.api.getSession({
     headers: await headers(), // you need to pass the headers object.
+  });
+  if (!session) {
+    redirect("/signin");
+  }
+  const apiKeys = await prisma.user.findUnique({
+    where: {
+      id: session.user.id,
+    },
+    select: {
+      openAiApiKey: true,
+      pineconeApiKey: true,
+    },
   });
   return (
     <div className="h-screen flex items-center">
@@ -55,7 +69,10 @@ export default async function Page() {
             </div>
           </CardContent>
         </Card>
-        <ApiKeyInput />
+        <ApiKeyInput
+          openAiApiKey={apiKeys?.openAiApiKey}
+          pineconeApiKey={apiKeys?.pineconeApiKey}
+        />
       </div>
     </div>
   );
