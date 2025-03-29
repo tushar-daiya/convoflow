@@ -35,7 +35,7 @@ export const FileUpload = ({
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (newFiles: File[]) => {
-    let newFilesArray=[...files,...newFiles];
+    let newFilesArray = [...files, ...newFiles];
     setFiles(newFilesArray);
     onChange && onChange(newFilesArray);
   };
@@ -46,7 +46,7 @@ export const FileUpload = ({
 
   const handleDelete = (e: MouseEvent, file: File) => {
     e.stopPropagation();
-    let filterdFiles=files.filter((f) => f !== file);
+    let filterdFiles = files.filter((f) => f !== file);
     setFiles(filterdFiles);
     onChange && onChange(filterdFiles);
   };
@@ -68,6 +68,7 @@ export const FileUpload = ({
         className="p-10 group/file block rounded-lg cursor-pointer w-full relative overflow-hidden"
       >
         <input
+          multiple
           ref={fileInputRef}
           id="file-upload-handle"
           type="file"
