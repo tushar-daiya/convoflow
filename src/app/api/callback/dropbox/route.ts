@@ -43,7 +43,7 @@ export async function GET(req: NextRequest) {
           grant_type: "authorization_code",
           client_id: process.env.AUTH_DROPBOX_ID,
           client_secret: process.env.AUTH_DROPBOX_SECRET,
-          redirect_uri: `${process.env.FRONTEND_URL}/api/auth/callback/dropbox`,
+          redirect_uri: `${process.env.FRONTEND_URL}/api/callback/dropbox`,
         },
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
       }

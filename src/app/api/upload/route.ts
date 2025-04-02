@@ -18,6 +18,7 @@ export async function POST(req: NextRequest) {
     headers: await headers(),
   });
   if (!session) {
+    console.log("Session not found");
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
